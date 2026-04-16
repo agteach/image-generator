@@ -12,6 +12,13 @@ if (menuToggle && mobileMenu) {
     event.stopPropagation();
     setMenuState(!mobileMenu.classList.contains("menu-open"));
   });
+
+  mobileMenu.addEventListener("click", (event) => {
+    if (event.target.closest("a, button")) {
+      setMenuState(false);
+    }
+  });
+
   document.addEventListener("click", (event) => {
     if (
       !menuToggle.contains(event.target) &&
